@@ -5,6 +5,10 @@
  */
 package moria;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author Vinnie
@@ -20,13 +24,19 @@ public class enterInfoGui extends javax.swing.JFrame {
     public String user;
     public String professor;
     public String course;
-    public String days;
+    public String days ="";
     public String group;
     public String time;
+    public Connection con;
     
-    public void acceptUser(String uid)
+    public void acceptUser(String uid, Connection c)
     {
         this.user = uid;
+        this.con = c;
+    }
+    public void acceptGroup(String g)
+    {
+        this.group = g;
     }
     
 
@@ -201,27 +211,43 @@ public class enterInfoGui extends javax.swing.JFrame {
         // get day string
         if(this.mondayButton.isSelected())
         {
-            this.days += "Monday ";
+            this.days += "M";
         }
         if(this.tuesdayButton.isSelected())
         {
-            this.days += "Tuesday ";
+            this.days += "T";
         }
         if(this.wednesdayButton.isSelected())
         {
-            this.days += "Wednesday ";
+            this.days += "W";
         }
         if(this.thursdayButton.isSelected())
         {
-            this.days += "Thursday ";
+            this.days += "TH";
         }
         if(this.fridayButton.isSelected())
         {
-            this.days += "Friday ";
+            this.days += "F";
         }
         
         //add to database here
-        
+        System.out.println(this.professor + " " + this.course + "  " + this.days+ " " + this.time);
+        try{
+            String sql = "INSERT INTO [dbo].[Classes]([Professor],[Course ID],[Meeting Days],[Meeting Time],[UserID],[Group]) VALUES(?,?,?,?,?,?)";
+            PreparedStatement ps = this.con.prepareStatement(sql);
+            ps.setString(1,this.professor);
+            ps.setString(2,this.course);
+            ps.setString(3,this.days);
+            ps.setString(4,this.time);
+            ps.setString(5,this.user);
+            ps.setString(6 ,this.group);
+            ps.executeUpdate();
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
         this.professor = null;
         this.course = null;
         this.time = null;
@@ -230,6 +256,8 @@ public class enterInfoGui extends javax.swing.JFrame {
         this.courseField.setText("");
         this.startTimeField.setText("");
         this.endTimeField.setText("");
+        
+        
       
     }//GEN-LAST:event_confirmButtonActionPerformed
 
