@@ -29,6 +29,7 @@ public class mainGui extends javax.swing.JFrame {
     
     public String userName;
     public String group;
+    public Connection con;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,7 +47,9 @@ public class mainGui extends javax.swing.JFrame {
         classTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         groupTable = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        groupLabel = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        membersTable = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         createAccount = new javax.swing.JMenuItem();
@@ -116,7 +119,24 @@ public class mainGui extends javax.swing.JFrame {
         groupTable.setFocusable(false);
         jScrollPane2.setViewportView(groupTable);
 
-        jLabel1.setText("Information For Your Group {GroupName}");
+        membersTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "First Name", "Last Name", "User Name"
+            }
+        ));
+        jScrollPane3.setViewportView(membersTable);
 
         jMenu1.setText("File");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -178,34 +198,39 @@ public class mainGui extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(classesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(groupsButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(classesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(121, 121, 121)
+                                .addComponent(groupLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(membersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(membersButton, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)))
+                    .addComponent(groupsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(classesButton)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(groupsButton)
+                    .addComponent(classesButton)
                     .addComponent(membersButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(groupLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(groupsButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -213,26 +238,26 @@ public class mainGui extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void acceptUser(String userID)
+    public void acceptUser(String userID, Connection c)
     {
       this.userName = userID;  
+      this.con = c;
+      showGroupInfo();
+      showClassInfo();
     }
     public void acceptGroup(String groupID)
     {
         this.group=groupID;
+        this.groupLabel.setText("Information for your group " + this.group);
     }
     public ArrayList<ClassInfo> classList()
     {
             ArrayList<ClassInfo> classList = new ArrayList<>();
             try
             {
-            String username = "sa";
-            String pass = "Left4dead!";
-            String url = "jdbc:sqlserver://98.193.48.252:36781;DatabaseName=Miora";
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            Connection con = DriverManager.getConnection(url, username, pass);
+
             String sql = "Select [Professor], [Course ID], [Meeting Days], [Meeting Time] from [dbo].[Classes] where UserID=?";
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = this.con.prepareStatement(sql);
             ps.setString(1,userName);
             ResultSet result = ps.executeQuery();
             ClassInfo classes;
@@ -242,7 +267,7 @@ public class mainGui extends javax.swing.JFrame {
                 classes = new ClassInfo(result.getString(1), result.getString(2), result.getString(3), result.getString(4));
                 classList.add(classes);
             }
-            con.close();
+           
             }
             catch (Exception e)
             {
@@ -270,13 +295,9 @@ public class mainGui extends javax.swing.JFrame {
         ArrayList<GroupInfo> groupInfo = new ArrayList<>();
         try
         {
-            String username = "sa";
-            String pass = "Left4dead!";
-            String url = "jdbc:sqlserver://98.193.48.252:36781;DatabaseName=Miora";
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            Connection con = DriverManager.getConnection(url, username, pass);
+            
             String sql = "Select [Professor], [Course ID], [Meeting Days], [Meeting Time], [UserID] from [dbo].[Classes] where [Group]=? and [UserID] !=?";
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = this.con.prepareStatement(sql);
             ps.setString(1,group); //TODO: Get dynamic group instead of static group.
             ps.setString(2, userName);
             ResultSet result = ps.executeQuery();
@@ -286,7 +307,7 @@ public class mainGui extends javax.swing.JFrame {
                 groups = new GroupInfo(result.getString(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5));
                 groupInfo.add(groups);
             }
-            con.close();
+            
         }
         catch(Exception e)
         {
@@ -312,9 +333,18 @@ public class mainGui extends javax.swing.JFrame {
         }
     }
     
-    public void clearRows()
+    public void clearRowsClass()
     {
         DefaultTableModel model = (DefaultTableModel)this.classTable.getModel(); 
+        int rows = model.getRowCount(); 
+        for(int i = rows - 1; i >=0; i--)
+        {
+            model.removeRow(i); 
+        }
+    }
+    public void clearRowsGroup()
+    {
+        DefaultTableModel model = (DefaultTableModel)this.groupTable.getModel(); 
         int rows = model.getRowCount(); 
         for(int i = rows - 1; i >=0; i--)
         {
@@ -340,16 +370,19 @@ public class mainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_createAccountActionPerformed
 
     private void classesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classesButtonActionPerformed
-        clearRows();
+        clearRowsClass();
         showClassInfo();
     }//GEN-LAST:event_classesButtonActionPerformed
 
     private void addClassMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClassMenuActionPerformed
         enterInfoGui infoGui = new enterInfoGui();
+        infoGui.acceptUser(userName, con);
+        infoGui.acceptGroup(this.group);
         infoGui.setVisible(true);
     }//GEN-LAST:event_addClassMenuActionPerformed
 
     private void groupsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupsButtonActionPerformed
+        clearRowsGroup();
         showGroupInfo();
     }//GEN-LAST:event_groupsButtonActionPerformed
 
@@ -394,17 +427,19 @@ public class mainGui extends javax.swing.JFrame {
     private javax.swing.JButton classesButton;
     private javax.swing.JMenuItem createAccount;
     private javax.swing.JMenuItem docButton;
+    private javax.swing.JLabel groupLabel;
     private javax.swing.JTable groupTable;
     private javax.swing.JButton groupsButton;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton membersButton;
+    private javax.swing.JTable membersTable;
     private javax.swing.JMenuItem quitMenuItem;
     // End of variables declaration//GEN-END:variables
 }
