@@ -26,6 +26,13 @@ public class loginGui extends javax.swing.JFrame {
 
     }
     
+    public Connection con;
+    
+    public void acceptConnection(Connection c)
+    {
+        this.con = c;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,7 +59,6 @@ public class loginGui extends javax.swing.JFrame {
         okButton = new javax.swing.JButton();
         quitButton = new javax.swing.JButton();
         newAccountButton = new javax.swing.JButton();
-        godModeButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -138,13 +144,6 @@ public class loginGui extends javax.swing.JFrame {
             }
         });
 
-        godModeButton.setText("God Mode");
-        godModeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                godModeButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -169,8 +168,6 @@ public class loginGui extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(77, 77, 77)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(godModeButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -180,16 +177,14 @@ public class loginGui extends javax.swing.JFrame {
                 .addComponent(newAccountButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(godModeButton))
-                .addGap(16, 16, 16)
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usernameLabel))
@@ -238,15 +233,10 @@ public class loginGui extends javax.swing.JFrame {
         else
         {
             try{
-            String username = "sa";
-            String pass = "Left4dead!";
-            String url = "jdbc:sqlserver://98.193.48.252:36781;DatabaseName=Miora";
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            Connection con = DriverManager.getConnection(url, username, pass);
             String sql = "Select * from [dbo].[Login] where [Username]=? and [Password] =?";
             String getGroup = "Select [Group] from [dbo].[Login] where [Username]=?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            PreparedStatement groupPS = con.prepareStatement(getGroup);
+            PreparedStatement ps = this.con.prepareStatement(sql);
+            PreparedStatement groupPS = this.con.prepareStatement(getGroup);
             groupPS.setString(1, userNameLogin);
             
             ps.setString(1, userNameLogin);
@@ -260,7 +250,7 @@ public class loginGui extends javax.swing.JFrame {
                     String groupID = resultG.getString(1);
                     mainGui main = new mainGui();           
                     main.acceptGroup(groupID);
-                    main.acceptUser(userNameLogin); 
+                    main.acceptUser(userNameLogin, this.con); 
                     main.setVisible(true);
                     this.setVisible(false);
                     System.out.println("Login Successful");
@@ -286,15 +276,9 @@ public class loginGui extends javax.swing.JFrame {
 
     private void newAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newAccountButtonActionPerformed
         newAccountGui newAcc = new newAccountGui();
+        newAcc.acceptConnection(this.con);
         newAcc.setVisible(true);
     }//GEN-LAST:event_newAccountButtonActionPerformed
-
-    private void godModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_godModeButtonActionPerformed
-                mainGui main = new mainGui();
-                main.acceptUser("admin"); 
-                main.setVisible(true);
-                this.setVisible(false);
-    }//GEN-LAST:event_godModeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -334,7 +318,6 @@ public class loginGui extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Password1Field;
     private javax.swing.JPasswordField Password2Field;
-    private javax.swing.JButton godModeButton;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JDialog jDialog3;
