@@ -312,6 +312,16 @@ public class mainGui extends javax.swing.JFrame {
         }
     }
     
+    public void clearRows()
+    {
+        DefaultTableModel model = (DefaultTableModel)this.classTable.getModel(); 
+        int rows = model.getRowCount(); 
+        for(int i = rows - 1; i >=0; i--)
+        {
+            model.removeRow(i); 
+        }
+    }
+    
     private void quitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitMenuItemActionPerformed
        System.exit(0);
     }//GEN-LAST:event_quitMenuItemActionPerformed
@@ -330,6 +340,7 @@ public class mainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_createAccountActionPerformed
 
     private void classesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classesButtonActionPerformed
+        clearRows();
         showClassInfo();
     }//GEN-LAST:event_classesButtonActionPerformed
 
