@@ -173,7 +173,7 @@ public class newAccountGui extends javax.swing.JFrame {
             try{
             String username = "sa";
             String pass = "Left4dead!";
-            String url = "jdbc:sqlserver://73.110.177.163:49710;DatabaseName=Miora";
+            String url = "jdbc:sqlserver://98.193.48.252:36781;DatabaseName=Miora";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection con = DriverManager.getConnection(url, username, pass);
             String sql = "INSERT INTO [dbo].[Login]([First Name],[Last Name],[Username],[Password],[Group])"

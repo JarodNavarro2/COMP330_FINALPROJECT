@@ -25,7 +25,7 @@ public class loginGui extends javax.swing.JFrame {
         initComponents();
 
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -213,7 +213,7 @@ public class loginGui extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+   
     private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_quitButtonActionPerformed
@@ -240,22 +240,31 @@ public class loginGui extends javax.swing.JFrame {
             try{
             String username = "sa";
             String pass = "Left4dead!";
-            String url = "jdbc:sqlserver://73.110.177.163:49710;DatabaseName=Miora";
+            String url = "jdbc:sqlserver://98.193.48.252:36781;DatabaseName=Miora";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection con = DriverManager.getConnection(url, username, pass);
-            String sql = "Select * from [dbo].[Login] where username=? and password =?";
+            String sql = "Select * from [dbo].[Login] where [Username]=? and [Password] =?";
+            String getGroup = "Select [Group] from [dbo].[Login] where [Username]=?";
             PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement groupPS = con.prepareStatement(getGroup);
+            groupPS.setString(1, userNameLogin);
+            
             ps.setString(1, userNameLogin);
             ps.setString(2, passwordOne);     
             ResultSet result = ps.executeQuery();
-            
+            ResultSet resultG = groupPS.executeQuery();            
             if(result.next())
             {
-                mainGui main = new mainGui();
-                main.acceptUser(userNameLogin); 
-                main.setVisible(true);
-                this.setVisible(false);
-                System.out.println("Login Successful");
+                if (resultG.next())
+                {
+                    String groupID = resultG.getString(1);
+                    mainGui main = new mainGui();           
+                    main.acceptGroup(groupID);
+                    main.acceptUser(userNameLogin); 
+                    main.setVisible(true);
+                    this.setVisible(false);
+                    System.out.println("Login Successful");
+                }
             }
             else
             {

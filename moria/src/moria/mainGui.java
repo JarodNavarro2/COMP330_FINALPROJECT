@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import moria.ClassInfo;
 import moria.mainGui;
+import moria.GroupInfo;
 /**
  *
  * @author Vinnie
@@ -67,6 +68,11 @@ public class mainGui extends javax.swing.JFrame {
         });
 
         groupsButton.setText("Refresh My Group");
+        groupsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupsButtonActionPerformed(evt);
+            }
+        });
 
         membersButton.setText("Refresh Members");
 
@@ -211,15 +217,18 @@ public class mainGui extends javax.swing.JFrame {
     {
       this.userName = userID;  
     }
+    public void acceptGroup(String groupID)
+    {
+        this.group=groupID;
+    }
     public ArrayList<ClassInfo> classList()
     {
             ArrayList<ClassInfo> classList = new ArrayList<>();
             try
             {
-            String userNameLogin = null;
             String username = "sa";
             String pass = "Left4dead!";
-            String url = "jdbc:sqlserver://73.110.177.163:49710;DatabaseName=Miora";
+            String url = "jdbc:sqlserver://98.193.48.252:36781;DatabaseName=Miora";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection con = DriverManager.getConnection(url, username, pass);
             String sql = "Select [Professor], [Course ID], [Meeting Days], [Meeting Time] from [dbo].[Classes] where UserID=?";
@@ -233,6 +242,7 @@ public class mainGui extends javax.swing.JFrame {
                 classes = new ClassInfo(result.getString(1), result.getString(2), result.getString(3), result.getString(4));
                 classList.add(classes);
             }
+            con.close();
             }
             catch (Exception e)
             {
@@ -252,13 +262,56 @@ public class mainGui extends javax.swing.JFrame {
             rows[1] = info.get(i).getCourse();
             rows[2] = info.get(i).getMeeting_days();
             rows[3] = info.get(i).getMeeting_time();
-            model.addRow(rows);
-            
-            
- 
-            
+            model.insertRow(i, rows);
         }
     }
+    public ArrayList<GroupInfo> groupInfo()
+    {
+        ArrayList<GroupInfo> groupInfo = new ArrayList<>();
+        try
+        {
+            String username = "sa";
+            String pass = "Left4dead!";
+            String url = "jdbc:sqlserver://98.193.48.252:36781;DatabaseName=Miora";
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection con = DriverManager.getConnection(url, username, pass);
+            String sql = "Select [Professor], [Course ID], [Meeting Days], [Meeting Time], [UserID] from [dbo].[Classes] where [Group]=? and [UserID] !=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1,group); //TODO: Get dynamic group instead of static group.
+            ps.setString(2, userName);
+            ResultSet result = ps.executeQuery();
+            GroupInfo groups;
+            while(result.next())
+            {
+                groups = new GroupInfo(result.getString(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5));
+                groupInfo.add(groups);
+            }
+            con.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return groupInfo;
+    }
+    public void showGroupInfo()
+    {
+        ArrayList<GroupInfo> groups = groupInfo();
+        DefaultTableModel model = (DefaultTableModel)this.groupTable.getModel();
+        
+        Object [] rows = new Object[5];
+        
+        for (int i = 0; i < groups.size(); i++)
+        {
+            rows[0] = groups.get(i).getProfessor();
+            rows[1] = groups.get(i).getCourse();
+            rows[2] = groups.get(i).getMeeting_days();
+            rows[3] = groups.get(i).getMeeting_time();
+            rows[4] = groups.get(i).getUserID();
+            model.insertRow(i, rows);
+        }
+    }
+    
     private void quitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitMenuItemActionPerformed
        System.exit(0);
     }//GEN-LAST:event_quitMenuItemActionPerformed
@@ -284,6 +337,10 @@ public class mainGui extends javax.swing.JFrame {
         enterInfoGui infoGui = new enterInfoGui();
         infoGui.setVisible(true);
     }//GEN-LAST:event_addClassMenuActionPerformed
+
+    private void groupsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupsButtonActionPerformed
+        showGroupInfo();
+    }//GEN-LAST:event_groupsButtonActionPerformed
 
     /**
      * @param args the command line arguments
