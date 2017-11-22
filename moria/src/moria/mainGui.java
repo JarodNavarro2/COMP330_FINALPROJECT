@@ -333,6 +333,12 @@ public class mainGui extends javax.swing.JFrame {
         }
     }
     
+
+    public void showMemberInfo()
+    {
+        
+    }
+    
     public void clearRowsClass()
     {
         DefaultTableModel model = (DefaultTableModel)this.classTable.getModel(); 
