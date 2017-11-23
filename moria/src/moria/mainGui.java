@@ -78,6 +78,11 @@ public class mainGui extends javax.swing.JFrame {
         });
 
         membersButton.setText("Refresh Members");
+        membersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                membersButtonActionPerformed(evt);
+            }
+        });
 
         classTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -395,6 +400,16 @@ public class mainGui extends javax.swing.JFrame {
         }
     }
     
+    public void clearRowsMember()
+    {
+        DefaultTableModel model = (DefaultTableModel)this.memberTable.getModel(); 
+        int rows = model.getRowCount(); 
+        for(int i = rows - 1; i >=0; i--)
+        {
+            model.removeRow(i); 
+        }
+    }
+    
     private void quitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitMenuItemActionPerformed
        System.exit(0);
     }//GEN-LAST:event_quitMenuItemActionPerformed
@@ -429,6 +444,11 @@ public class mainGui extends javax.swing.JFrame {
         clearRowsGroup();
         showGroupInfo();
     }//GEN-LAST:event_groupsButtonActionPerformed
+
+    private void membersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_membersButtonActionPerformed
+        clearRowsMember();
+        showMemberInfo();
+    }//GEN-LAST:event_membersButtonActionPerformed
 
     /**
      * @param args the command line arguments
