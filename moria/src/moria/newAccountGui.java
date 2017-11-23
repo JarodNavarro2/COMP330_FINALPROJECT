@@ -23,11 +23,17 @@ public class newAccountGui extends javax.swing.JFrame {
     public String userName;
     public String group;
     public String password;
+    public Connection con;
     /**
      * Creates new form newAccountGui
      */
     public newAccountGui() {
         initComponents();
+    }
+    
+    public void acceptConnection(Connection c)
+    {
+      this.con = c;  
     }
 
     /**
@@ -171,14 +177,10 @@ public class newAccountGui extends javax.swing.JFrame {
             userName = this.userNameField.getText();
             password = this.passwordField.getText();
             try{
-            String username = "sa";
-            String pass = "Left4dead!";
-            String url = "jdbc:sqlserver://98.193.48.252:36781;DatabaseName=Miora";
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            Connection con = DriverManager.getConnection(url, username, pass);
+       
             String sql = "INSERT INTO [dbo].[Login]([First Name],[Last Name],[Username],[Password],[Group])"
                     + "values(?,?,?,?,?)";
-            PreparedStatement ps = con.prepareStatement(sql);
+        PreparedStatement ps = this.con.prepareStatement(sql);
             ps.setString(1, firstName);
             ps.setString(2, lastName);
             ps.setString(3, userName);
