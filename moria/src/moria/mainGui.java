@@ -402,7 +402,7 @@ public class mainGui extends javax.swing.JFrame {
     
     public void clearRowsMember()
     {
-        DefaultTableModel model = (DefaultTableModel)this.memberTable.getModel(); 
+        DefaultTableModel model = (DefaultTableModel)this.membersTable.getModel(); 
         int rows = model.getRowCount(); 
         for(int i = rows - 1; i >=0; i--)
         {
