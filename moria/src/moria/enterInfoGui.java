@@ -276,6 +276,11 @@ public class enterInfoGui extends javax.swing.JFrame {
             this.courseField.setText("");
             this.startTimeField.setText("");
             this.endTimeField.setText("");
+            this.mondayButton.setSelected(false);
+            this.tuesdayButton.setSelected(false);
+            this.wednesdayButton.setSelected(false);
+            this.thursdayButton.setSelected(false);
+            this.fridayButton.setSelected(false);
         }
         else
         {
