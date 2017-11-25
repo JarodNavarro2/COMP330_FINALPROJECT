@@ -8,6 +8,7 @@ package moria;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,6 +38,24 @@ public class enterInfoGui extends javax.swing.JFrame {
     public void acceptGroup(String g)
     {
         this.group = g;
+    }
+    public boolean validInput()
+    {
+        boolean valid = true;
+        
+        if(this.professorField.getText().equals("") ||this.courseField.getText().equals("") 
+                || this.startTimeField.getText().equals("") || this.endTimeField.getText().equals(""))
+        {
+            valid = false;
+        }
+        if( !(this.mondayButton.isSelected() || this.thursdayButton.isSelected() || this.tuesdayButton.isSelected()
+                || this.wednesdayButton.isSelected() || this.fridayButton.isSelected()))
+        {
+            valid = false;
+        }
+        
+        
+        return valid;
     }
     
 
@@ -231,31 +250,37 @@ public class enterInfoGui extends javax.swing.JFrame {
         }
         
         //add to database here
-        System.out.println(this.professor + " " + this.course + "  " + this.days+ " " + this.time);
-        try{
-            String sql = "INSERT INTO [dbo].[Classes]([Professor],[Course ID],[Meeting Days],[Meeting Time],[UserID],[Group]) VALUES(?,?,?,?,?,?)";
-            PreparedStatement ps = this.con.prepareStatement(sql);
-            ps.setString(1,this.professor);
-            ps.setString(2,this.course);
-            ps.setString(3,this.days);
-            ps.setString(4,this.time);
-            ps.setString(5,this.user);
-            ps.setString(6 ,this.group);
-            ps.executeUpdate();
-            
-        }
-        catch(Exception e)
+        if(validInput())
         {
-            System.out.println(e);
+            try{
+                String sql = "INSERT INTO [dbo].[Classes]([Professor],[Course ID],[Meeting Days],[Meeting Time],[UserID],[Group]) VALUES(?,?,?,?,?,?)";
+                PreparedStatement ps = this.con.prepareStatement(sql);
+                ps.setString(1,this.professor);
+                ps.setString(2,this.course);
+                ps.setString(3,this.days);
+                ps.setString(4,this.time);
+                ps.setString(5,this.user);
+                ps.setString(6 ,this.group);
+                ps.executeUpdate();
+
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
+            this.professor = null;
+            this.course = null;
+            this.time = null;
+            this.days = null;
+            this.professorField.setText("");
+            this.courseField.setText("");
+            this.startTimeField.setText("");
+            this.endTimeField.setText("");
         }
-        this.professor = null;
-        this.course = null;
-        this.time = null;
-        this.days = null;
-        this.professorField.setText("");
-        this.courseField.setText("");
-        this.startTimeField.setText("");
-        this.endTimeField.setText("");
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Invalid input, Please Ensure all fields are full, and at least one day is checked!");
+        }
         
         
       
