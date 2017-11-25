@@ -5,15 +5,12 @@
  */
 package moria;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import moria.ClassInfo;
-import moria.mainGui;
-import moria.GroupInfo;
+
 /**
  *
  * @author Vinnie
