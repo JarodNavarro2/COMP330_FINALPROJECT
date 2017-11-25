@@ -7,6 +7,7 @@ package moria;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -19,6 +20,9 @@ public class Moria {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        loginGui login = new loginGui();
+        login.setVisible(true);
         Connection con;
         con = null;
         try
@@ -31,13 +35,10 @@ public class Moria {
             }
             catch(Exception e)
             {
-                System.out.println("connection to database failed");
+                JOptionPane.showMessageDialog(login, "Connection to Database failed. Sever may be down!");
                 System.exit(0);
             }
 
- 
-        loginGui login = new loginGui();
-        login.setVisible(true);
         login.acceptConnection(con);
        
     }
