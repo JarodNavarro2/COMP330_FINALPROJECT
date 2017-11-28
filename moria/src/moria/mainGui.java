@@ -7,7 +7,7 @@ package moria;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
+import java.util.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -245,6 +245,7 @@ public class mainGui extends javax.swing.JFrame {
       this.con = c;
       showGroupInfo();
       showClassInfo();
+      showMemberInfo();
     }
     public void acceptGroup(String groupID)
     {
@@ -406,6 +407,8 @@ public class mainGui extends javax.swing.JFrame {
             model.removeRow(i); 
         }
     }
+    
+
     
     private void quitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitMenuItemActionPerformed
        System.exit(0);
