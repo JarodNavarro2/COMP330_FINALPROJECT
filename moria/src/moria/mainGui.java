@@ -392,7 +392,7 @@ public class mainGui extends javax.swing.JFrame {
         
     }
     
-    public void clearRowsClass()
+    public void clearRowsClass() //  change this to be all one clear function.
     {
         DefaultTableModel model = (DefaultTableModel)this.classTable.getModel(); 
         int rows = model.getRowCount(); 
