@@ -279,7 +279,7 @@ public class loginGui extends javax.swing.JFrame {
         newAcc.acceptConnection(this.con);
         newAcc.setVisible(true);
     }//GEN-LAST:event_newAccountButtonActionPerformed
-
+/**/
     /**
      * @param args the command line arguments
      */
