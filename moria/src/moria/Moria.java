@@ -36,7 +36,10 @@ public class Moria {
             catch(Exception e)
             {
                 JOptionPane.showMessageDialog(login, "Connection to Database failed. Sever may be down!");
+                System.out.println(e);
                 System.exit(0);
+                
+             
             }
 
         login.acceptConnection(con);
