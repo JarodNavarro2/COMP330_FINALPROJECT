@@ -27,6 +27,7 @@ public class mainGui extends javax.swing.JFrame {
     public String userName;
     public String group;
     public Connection con;
+    public boolean connect;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -265,28 +266,42 @@ public class mainGui extends javax.swing.JFrame {
         this.group=groupID;
         this.groupLabel.setText("Information for your group " + this.group);
     }
+    public void isConnected(boolean connect)
+    {
+        this.connect = connect;
+    }
+    //TESTING 
     public ArrayList<ClassInfo> classList()
     {
             ArrayList<ClassInfo> classList = new ArrayList<>();
-            try
+            if (connect == true)
             {
+                try
+                {
 
-            String sql = "Select [Professor], [Course ID], [Meeting Days], [Meeting Time] from [dbo].[Classes] where UserID=?";
-            PreparedStatement ps = this.con.prepareStatement(sql);
-            ps.setString(1,userName);
-            ResultSet result = ps.executeQuery();
-            ClassInfo classes;
+                String sql = "Select [Professor], [Course ID], [Meeting Days], [Meeting Time] from [dbo].[Classes] where UserID=?";
+                PreparedStatement ps = this.con.prepareStatement(sql);
+                ps.setString(1,userName);
+                ResultSet result = ps.executeQuery();
+                ClassInfo classes;
             
-            while (result.next())
-            {
-                classes = new ClassInfo(result.getString(1), result.getString(2), result.getString(3), result.getString(4));
-                classList.add(classes);
-            }
+                while (result.next())
+                {
+                    classes = new ClassInfo(result.getString(1), result.getString(2), result.getString(3), result.getString(4));
+                    classList.add(classes);
+                }
            
+                }
+                catch (Exception e)
+                {
+                    JOptionPane.showMessageDialog(null, e);
+                }
             }
-            catch (Exception e)
+            else
             {
-                JOptionPane.showMessageDialog(null, e);
+                ClassInfo classes;
+                classes = new ClassInfo("Hungerford","BIOL 101","MWF","10:30AM-12:00PM");
+                classList.add(classes);
             }
             return classList;
     }
@@ -419,8 +434,7 @@ public class mainGui extends javax.swing.JFrame {
         {
             model.removeRow(i); 
         }
-    }
-    
+    }   
 
     
     private void quitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitMenuItemActionPerformed
