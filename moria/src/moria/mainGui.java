@@ -27,7 +27,6 @@ public class mainGui extends javax.swing.JFrame {
     public String userName;
     public String group;
     public Connection con;
-    public boolean connect;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,8 +55,10 @@ public class mainGui extends javax.swing.JFrame {
         addClassMenu = new javax.swing.JMenuItem();
         quitMenuItem = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        editAccount = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         docButton = new javax.swing.JMenuItem();
+        report = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -189,6 +190,15 @@ public class mainGui extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
+
+        editAccount.setText("Edit Account");
+        editAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editAccountActionPerformed(evt);
+            }
+        });
+        jMenu2.add(editAccount);
+
         jMenuBar1.add(jMenu2);
 
         helpMenu.setText("Help");
@@ -200,6 +210,9 @@ public class mainGui extends javax.swing.JFrame {
             }
         });
         helpMenu.add(docButton);
+
+        report.setText("Report Someone");
+        helpMenu.add(report);
 
         jMenuBar1.add(helpMenu);
 
@@ -266,19 +279,13 @@ public class mainGui extends javax.swing.JFrame {
         this.group=groupID;
         this.groupLabel.setText("Information for your group " + this.group);
     }
-    public void isConnected(boolean connect)
-    {
-        this.connect = connect;
-    }
     //TESTING 
     public ArrayList<ClassInfo> classList()
     {
-            ArrayList<ClassInfo> classList = new ArrayList<>();
-            if (connect == true)
+        ArrayList<ClassInfo> classList = new ArrayList<>();            
+            
+            try
             {
-                try
-                {
-
                 String sql = "Select [Professor], [Course ID], [Meeting Days], [Meeting Time] from [dbo].[Classes] where UserID=?";
                 PreparedStatement ps = this.con.prepareStatement(sql);
                 ps.setString(1,userName);
@@ -291,18 +298,11 @@ public class mainGui extends javax.swing.JFrame {
                     classList.add(classes);
                 }
            
-                }
-                catch (Exception e)
-                {
-                    JOptionPane.showMessageDialog(null, e);
-                }
             }
-            else
+            catch (Exception e)
             {
-                ClassInfo classes;
-                classes = new ClassInfo("Hungerford","BIOL 101","MWF","10:30AM-12:00PM");
-                classList.add(classes);
-            }
+                    JOptionPane.showMessageDialog(null, e);
+            }       
             return classList;
     }
     public void showClassInfo()
@@ -481,6 +481,10 @@ public class mainGui extends javax.swing.JFrame {
         addClassMenuActionPerformed(evt);
     }//GEN-LAST:event_addClassButtonActionPerformed
 
+    private void editAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAccountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editAccountActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -523,6 +527,7 @@ public class mainGui extends javax.swing.JFrame {
     private javax.swing.JButton classesButton;
     private javax.swing.JMenuItem createAccount;
     private javax.swing.JMenuItem docButton;
+    private javax.swing.JMenuItem editAccount;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel groupLabel;
     private javax.swing.JTable groupTable;
@@ -538,5 +543,6 @@ public class mainGui extends javax.swing.JFrame {
     private javax.swing.JButton membersButton;
     private javax.swing.JTable membersTable;
     private javax.swing.JMenuItem quitMenuItem;
+    private javax.swing.JMenuItem report;
     // End of variables declaration//GEN-END:variables
 }

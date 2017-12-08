@@ -246,25 +246,52 @@ public class loginGui extends javax.swing.JFrame {
             try{
             String sql = "Select * from [dbo].[Login] where [Username]=? and [Password] =?";
             String getGroup = "Select [Group] from [dbo].[Login] where [Username]=?";
+            String getReport = "Select [Report Number] from [dbo].[Report] where [UserID]=?";
             PreparedStatement ps = this.con.prepareStatement(sql);
             PreparedStatement groupPS = this.con.prepareStatement(getGroup);
+            PreparedStatement reportPS = this.con.prepareStatement(getReport);
             groupPS.setString(1, userNameLogin);
+            reportPS.setString(1, userNameLogin);
             
             ps.setString(1, userNameLogin);
             ps.setString(2, passwordOne);     
             ResultSet result = ps.executeQuery();
-            ResultSet resultG = groupPS.executeQuery();            
+            ResultSet resultG = groupPS.executeQuery();  
+            ResultSet resultR = reportPS.executeQuery();
+            int ban = 0;
+            if (resultR.next())
+            {
+                ban = resultR.getInt(1);
+            }
             if(result.next())
             {
                 if (resultG.next())
                 {
-                    String groupID = resultG.getString(1);
-                    mainGui main = new mainGui();           
-                    main.acceptGroup(groupID);
-                    main.acceptUser(userNameLogin, this.con); 
-                    main.setVisible(true);
-                    this.setVisible(false);
-                    System.out.println("Login Successful");
+                    if (ban == 0)
+                    {
+                        String groupID = resultG.getString(1);
+                        mainGui main = new mainGui();           
+                        main.acceptGroup(groupID);
+                        main.acceptUser(userNameLogin, this.con); 
+                        main.setVisible(true);
+                        this.setVisible(false);
+                        System.out.println("Login Successful");
+                    }
+                    else if (ban >= 3)
+                    {
+                        JOptionPane.showMessageDialog(this, "You've been reported too many times. Your account has been banned");
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(this, "You have reports under your name. Be nice to others");
+                        String groupID = resultG.getString(1);
+                        mainGui main = new mainGui();           
+                        main.acceptGroup(groupID);
+                        main.acceptUser(userNameLogin, this.con); 
+                        main.setVisible(true);
+                        this.setVisible(false);
+                        System.out.println("Login Successful");
+                    }
                 }
             }
             else
