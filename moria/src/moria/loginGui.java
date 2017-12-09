@@ -60,7 +60,6 @@ public class loginGui extends javax.swing.JFrame {
         quitButton = new javax.swing.JButton();
         newAccountButton = new javax.swing.JButton();
         godModeButton = new javax.swing.JButton();
-        workerLoginButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -153,13 +152,6 @@ public class loginGui extends javax.swing.JFrame {
             }
         });
 
-        workerLoginButton.setText("Worker Login");
-        workerLoginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                workerLoginButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -182,17 +174,17 @@ public class loginGui extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addGap(86, 86, 86)
-                        .addComponent(godModeButton)))
+                        .addGap(41, 41, 41)
+                        .addComponent(godModeButton)
+                        .addGap(28, 28, 28)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addComponent(okButton, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(workerLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(okButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(47, 47, 47)
                 .addComponent(newAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,8 +209,7 @@ public class loginGui extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(okButton)
                     .addComponent(newAccountButton)
-                    .addComponent(quitButton)
-                    .addComponent(workerLoginButton)))
+                    .addComponent(quitButton)))
         );
 
         getAccessibleContext().setAccessibleName("Moria Login Page");
@@ -329,10 +320,6 @@ public class loginGui extends javax.swing.JFrame {
         mainGui main = new mainGui();
         main.setVisible(true);
     }//GEN-LAST:event_godModeButtonActionPerformed
-
-    private void workerLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workerLoginButtonActionPerformed
-        // handle worker login
-    }//GEN-LAST:event_workerLoginButtonActionPerformed
 /**/
     /**
      * @param args the command line arguments
@@ -388,6 +375,5 @@ public class loginGui extends javax.swing.JFrame {
     private javax.swing.JButton quitButton;
     private javax.swing.JTextField userNameField;
     private javax.swing.JLabel usernameLabel;
-    private javax.swing.JButton workerLoginButton;
     // End of variables declaration//GEN-END:variables
 }
