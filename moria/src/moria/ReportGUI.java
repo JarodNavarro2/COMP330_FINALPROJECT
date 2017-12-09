@@ -5,6 +5,7 @@
  */
 package moria;
 
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,13 @@ public class ReportGUI extends javax.swing.JFrame {
      */
     public ReportGUI() {
         initComponents();
+    }
+    
+    Connection con;
+    
+    public void acceptConnection(Connection c)
+    {
+        this.con = c;
     }
 
     /**
