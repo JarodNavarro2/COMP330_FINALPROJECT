@@ -58,7 +58,7 @@ public class mainGui extends javax.swing.JFrame {
         editAccount = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         docButton = new javax.swing.JMenuItem();
-        report = new javax.swing.JMenuItem();
+        reportMenuItem = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -211,8 +211,13 @@ public class mainGui extends javax.swing.JFrame {
         });
         helpMenu.add(docButton);
 
-        report.setText("Report Someone");
-        helpMenu.add(report);
+        reportMenuItem.setText("Report Someone");
+        reportMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportMenuItemActionPerformed(evt);
+            }
+        });
+        helpMenu.add(reportMenuItem);
 
         jMenuBar1.add(helpMenu);
 
@@ -485,6 +490,11 @@ public class mainGui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_editAccountActionPerformed
 
+    private void reportMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportMenuItemActionPerformed
+        ReportGUI r = new ReportGUI();
+        r.setVisible(true);
+    }//GEN-LAST:event_reportMenuItemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -543,6 +553,6 @@ public class mainGui extends javax.swing.JFrame {
     private javax.swing.JButton membersButton;
     private javax.swing.JTable membersTable;
     private javax.swing.JMenuItem quitMenuItem;
-    private javax.swing.JMenuItem report;
+    private javax.swing.JMenuItem reportMenuItem;
     // End of variables declaration//GEN-END:variables
 }
