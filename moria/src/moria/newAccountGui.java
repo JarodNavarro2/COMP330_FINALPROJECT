@@ -176,29 +176,42 @@ public class newAccountGui extends javax.swing.JFrame {
             group = this.groupField.getText();
             userName = this.userNameField.getText();
             password = this.passwordField.getText();
-            try{
-       
-            String sql = "INSERT INTO [dbo].[Login]([First Name],[Last Name],[Username],[Password],[Group])"
+            try
+            {
+                String checkSql = "Select * from [dbo].[Login] where [Username] = ?";
+                PreparedStatement checkPS = this.con.prepareStatement(checkSql);
+                checkPS.setString(1, userName);
+                ResultSet checkResult = checkPS.executeQuery();
+                if (checkResult.next())
+                {
+                    JOptionPane.showMessageDialog(this, "Username already taken");
+                }
+                else
+                {
+                    String sql = "INSERT INTO [dbo].[Login]([First Name],[Last Name],[Username],[Password],[Group])"
                     + "values(?,?,?,?,?)";
-        PreparedStatement ps = this.con.prepareStatement(sql);
-            ps.setString(1, firstName);
-            ps.setString(2, lastName);
-            ps.setString(3, userName);
-            ps.setString(4, password);
-            ps.setString(5, group);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Account Created");
-            this.setVisible(false);
+                    String insertReport = "Insert into [dbo].[Report] ([UserID], [Report Number], [Reason]) values (?,?,?)";
+                    PreparedStatement reportPS = this.con.prepareStatement(insertReport);
+                    PreparedStatement ps = this.con.prepareStatement(sql);
+                    ps.setString(1, firstName);
+                    ps.setString(2, lastName);
+                    ps.setString(3, userName);
+                    ps.setString(4, password);
+                    ps.setString(5, group);
+                    reportPS.setString(1, userName);
+                    reportPS.setInt(2, 0);
+                    reportPS.setString(3, null);
+                    reportPS.executeUpdate();
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Account Created");
+                    this.setVisible(false);
+                }
             
             }
             catch(Exception e)
             {
                 System.out.println(e);
-            }
-            
-            JOptionPane.showMessageDialog(this, "Account Created Sucessfully");
-            this.setVisible(false);
-            
+            }            
         }
     }//GEN-LAST:event_confirmButtonActionPerformed
 
