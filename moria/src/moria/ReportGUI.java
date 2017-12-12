@@ -6,6 +6,11 @@
 package moria;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +27,7 @@ public class ReportGUI extends javax.swing.JFrame {
     }
     
     Connection con;
+    int report;
     
     public void acceptConnection(Connection c)
     {
@@ -118,6 +124,31 @@ public class ReportGUI extends javax.swing.JFrame {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         String explaination = this.problemTextField.getText();
         String userName = this.userNameField.getText();
+        
+        String getReport = "Select [Report Number] from [dbo].[Report] where [UserID] = ?";
+        String updateReport = "UPDATE [dbo].[Report] SET [UserID] = ? ,[Report Number] = ? , [Reason] = ? WHERE UserID = ?";
+        try {
+            PreparedStatement reportPS = this.con.prepareStatement(getReport);
+            reportPS.setString(1, userName);
+            ResultSet resultR = reportPS.executeQuery();
+            if (resultR.next())
+            {
+                report = resultR.getInt(1);
+                report++;
+            }
+            PreparedStatement update = this.con.prepareStatement(updateReport);
+            update.setString(1, userName);
+            update.setInt(2, report);
+            update.setString(3, explaination);
+            update.setString(4, userName);
+            
+            update.executeUpdate();
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(ReportGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         JOptionPane.showMessageDialog(this, "Report Submitted");
         this.setVisible(false);
     }//GEN-LAST:event_okButtonActionPerformed

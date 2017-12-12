@@ -257,6 +257,10 @@ public class mainGui extends javax.swing.JFrame {
     {
       this.userName = userID;  
       this.con = c;
+      // clear tables first
+      clearRowsMember();
+      clearRowsGroup();
+      clearRowsClass();
       showGroupInfo();
       showClassInfo();
       showMemberInfo();
@@ -326,7 +330,7 @@ public class mainGui extends javax.swing.JFrame {
         try
         {
             
-            String sql = "Select [Professor], [Course ID], [Meeting Days], [Meeting Time], [UserID] from [dbo].[Classes] where [Group]=? and [UserID] !=?";
+            String sql = "Select [Professor], [Course ID], [Meeting Days], [Meeting Time], [UserID] from [dbo].[Classes] where [Group]=? and [UserID] !=? order by [Professor] asc";
             PreparedStatement ps = this.con.prepareStatement(sql);
             ps.setString(1,group); //TODO: Get dynamic group instead of static group.
             ps.setString(2, userName);
@@ -369,8 +373,9 @@ public class mainGui extends javax.swing.JFrame {
         try
         {
             
-            String sql = "SELECT [First Name],[Last Name],[Username] FROM [dbo].[Login] where [Group] = '" + this.group + "'  order by [First Name] asc";
+            String sql = "SELECT [First Name],[Last Name],[Username] FROM [dbo].[Login] where [Group] = ? order by [First Name] asc";
             PreparedStatement ps = this.con.prepareStatement(sql);
+            ps.setString(1, group);
             ResultSet result = ps.executeQuery();
             MemberInfo members;
             while(result.next())
