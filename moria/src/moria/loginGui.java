@@ -50,16 +50,13 @@ public class loginGui extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         userNameField = new javax.swing.JTextField();
-        usernameLabel = new javax.swing.JLabel();
-        password1Label = new javax.swing.JLabel();
         Password1Field = new javax.swing.JPasswordField();
         Password2Field = new javax.swing.JPasswordField();
         password2Label = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         okButton = new javax.swing.JButton();
         quitButton = new javax.swing.JButton();
         newAccountButton = new javax.swing.JButton();
-        godModeButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -112,105 +109,52 @@ public class loginGui extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(720, 390, 390, 390));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        usernameLabel.setText("UserName:");
-        usernameLabel.setFocusable(false);
+        userNameField.setBorder(null);
+        userNameField.setOpaque(false);
+        getContentPane().add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 190, 20));
 
-        password1Label.setText("Password");
-        password1Label.setFocusable(false);
+        Password1Field.setBorder(null);
+        Password1Field.setOpaque(false);
+        getContentPane().add(Password1Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 190, 20));
+        getContentPane().add(Password2Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 127, -1));
 
         password2Label.setText("Re-type Password");
         password2Label.setFocusable(false);
+        getContentPane().add(password2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 104, -1));
 
-        jLabel1.setText("Welcome To Moira. Please Log In!");
-
-        okButton.setText("Student Login");
+        okButton.setBorder(null);
+        okButton.setContentAreaFilled(false);
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(okButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 213, 50, 30));
 
-        quitButton.setText("Exit");
+        quitButton.setBackground(java.awt.Color.white);
+        quitButton.setBorderPainted(false);
+        quitButton.setContentAreaFilled(false);
         quitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quitButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(quitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 40, 40));
 
-        newAccountButton.setText("New Account");
+        newAccountButton.setBorder(null);
+        newAccountButton.setContentAreaFilled(false);
         newAccountButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newAccountButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(newAccountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 170, 20));
 
-        godModeButton.setText("God Mode");
-        godModeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                godModeButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(password1Label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(usernameLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(userNameField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Password1Field, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(password2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Password2Field, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(41, 41, 41)
-                        .addComponent(godModeButton)
-                        .addGap(28, 28, 28)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(okButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(47, 47, 47)
-                .addComponent(newAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(godModeButton))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(usernameLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(password1Label)
-                    .addComponent(Password1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Password2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(password2Label))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(okButton)
-                    .addComponent(newAccountButton)
-                    .addComponent(quitButton)))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/loginImage.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 390));
 
         getAccessibleContext().setAccessibleName("Moria Login Page");
 
@@ -315,11 +259,6 @@ public class loginGui extends javax.swing.JFrame {
         newAcc.acceptConnection(this.con);
         newAcc.setVisible(true);
     }//GEN-LAST:event_newAccountButtonActionPerformed
-
-    private void godModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_godModeButtonActionPerformed
-        mainGui main = new mainGui();
-        main.setVisible(true);
-    }//GEN-LAST:event_godModeButtonActionPerformed
 /**/
     /**
      * @param args the command line arguments
@@ -359,21 +298,18 @@ public class loginGui extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Password1Field;
     private javax.swing.JPasswordField Password2Field;
-    private javax.swing.JButton godModeButton;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JDialog jDialog3;
     private javax.swing.JDialog jDialog4;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JButton newAccountButton;
     private javax.swing.JButton okButton;
-    private javax.swing.JLabel password1Label;
     private javax.swing.JLabel password2Label;
     private javax.swing.JButton quitButton;
     private javax.swing.JTextField userNameField;
-    private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -62,7 +62,12 @@ public class mainGui extends javax.swing.JFrame {
 
         jMenuItem1.setText("jMenuItem1");
 
+        filler1.setBackground(java.awt.Color.white);
+        filler1.setForeground(java.awt.Color.white);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 204, 204));
+        setForeground(new java.awt.Color(0, 153, 153));
 
         classesButton.setText("Refresh My Classes");
         classesButton.addActionListener(new java.awt.event.ActionListener() {
@@ -85,6 +90,8 @@ public class mainGui extends javax.swing.JFrame {
             }
         });
 
+        classTable.setBackground(new java.awt.Color(159, 226, 226));
+        classTable.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         classTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -103,8 +110,11 @@ public class mainGui extends javax.swing.JFrame {
             }
         ));
         classTable.setFocusable(false);
+        classTable.setSelectionForeground(new java.awt.Color(225, 255, 255));
         jScrollPane1.setViewportView(classTable);
 
+        groupTable.setBackground(new java.awt.Color(159, 226, 226));
+        groupTable.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         groupTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -127,6 +137,8 @@ public class mainGui extends javax.swing.JFrame {
 
         groupLabel.setText("Information For You Group {group}");
 
+        membersTable.setBackground(new java.awt.Color(159, 226, 226));
+        membersTable.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         membersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
