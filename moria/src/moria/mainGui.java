@@ -275,6 +275,10 @@ public class mainGui extends javax.swing.JFrame {
     {
       this.userName = userID;  
       this.con = c;
+      // clear tables first
+      clearRowsMember();
+      clearRowsGroup();
+      clearRowsClass();
       showGroupInfo();
       showClassInfo();
       showMemberInfo();
