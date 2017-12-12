@@ -54,8 +54,6 @@ public class mainGui extends javax.swing.JFrame {
         createAccount = new javax.swing.JMenuItem();
         addClassMenu = new javax.swing.JMenuItem();
         quitMenuItem = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        editAccount = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         docButton = new javax.swing.JMenuItem();
         reportMenuItem = new javax.swing.JMenuItem();
@@ -188,18 +186,6 @@ public class mainGui extends javax.swing.JFrame {
         jMenu1.add(quitMenuItem);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-
-        editAccount.setText("Edit Account");
-        editAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editAccountActionPerformed(evt);
-            }
-        });
-        jMenu2.add(editAccount);
-
-        jMenuBar1.add(jMenu2);
 
         helpMenu.setText("Help");
 
@@ -491,10 +477,6 @@ public class mainGui extends javax.swing.JFrame {
         addClassMenuActionPerformed(evt);
     }//GEN-LAST:event_addClassButtonActionPerformed
 
-    private void editAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAccountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editAccountActionPerformed
-
     private void reportMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportMenuItemActionPerformed
         ReportGUI r = new ReportGUI();
         r.acceptConnection(this.con);
@@ -543,14 +525,12 @@ public class mainGui extends javax.swing.JFrame {
     private javax.swing.JButton classesButton;
     private javax.swing.JMenuItem createAccount;
     private javax.swing.JMenuItem docButton;
-    private javax.swing.JMenuItem editAccount;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel groupLabel;
     private javax.swing.JTable groupTable;
     private javax.swing.JButton groupsButton;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
