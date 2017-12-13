@@ -50,7 +50,7 @@ The following section details the functions of the application Moira and how to 
 
 Users must log into the application before it can be run. Details on how to create a new account and login are detailed below.
 
-The application consists of a trio of grids; one for the user’s schedule information with refresh and add classes buttons below, one for the schedule information of every member of the group with a refresh option below, and one for information on the group members with a refresh option below. The grids are topped by a menu bar with three options - File, Edit, and Help. The functions of each of these options are detailed below.
+The application consists of a trio of grids; one for the user’s schedule information with refresh and add classes buttons below, one for the schedule information of every member of the group with a refresh option below, and one for information on the group members with a refresh option below. The grids are topped by a menu bar with two options - File and Help. The functions of each of these options are detailed below.
 
 
 Logging In
@@ -82,12 +82,6 @@ This option contains account and class creation tools, as well as an exit tool
 - Quit
   - Keyboard Shortcut: Esc
   - This will logout the user and close the application
-
-Menu Bar - Edit
-
-This option contains tools to allow users to edit their account information
-- Edit Account
-  - Keyboard Shortcut: N/A
 
 Menu Bar - Help
 
