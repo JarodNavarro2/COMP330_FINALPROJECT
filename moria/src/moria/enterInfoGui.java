@@ -68,155 +68,77 @@ public class enterInfoGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        titleLabel = new javax.swing.JLabel();
-        professorLabel = new javax.swing.JLabel();
         professorField = new javax.swing.JTextField();
-        meetingLabel = new javax.swing.JLabel();
         mondayButton = new javax.swing.JCheckBox();
         tuesdayButton = new javax.swing.JCheckBox();
         wednesdayButton = new javax.swing.JCheckBox();
         thursdayButton = new javax.swing.JCheckBox();
         fridayButton = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
         startTimeField = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         endTimeField = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         courseField = new javax.swing.JTextField();
         confirmButton = new javax.swing.JButton();
         doneButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        titleLabel.setText("Enter Your Class Information Here!");
+        professorField.setBorder(null);
+        professorField.setOpaque(false);
+        getContentPane().add(professorField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 180, 20));
 
-        professorLabel.setText("Professor:");
-        professorLabel.setFocusable(false);
+        mondayButton.setOpaque(false);
+        getContentPane().add(mondayButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 282, 20, 20));
 
-        meetingLabel.setText("Meeting Days");
+        tuesdayButton.setToolTipText("");
+        tuesdayButton.setOpaque(false);
+        getContentPane().add(tuesdayButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 282, 20, 20));
 
-        mondayButton.setText("Monday");
+        wednesdayButton.setBackground(null);
+        wednesdayButton.setBorder(null);
+        wednesdayButton.setOpaque(false);
+        getContentPane().add(wednesdayButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 282, 20, 20));
 
-        tuesdayButton.setText("Tuesday");
+        thursdayButton.setOpaque(false);
+        getContentPane().add(thursdayButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 282, 20, 20));
 
-        wednesdayButton.setText("Wednesday");
+        fridayButton.setOpaque(false);
+        getContentPane().add(fridayButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 282, 20, 20));
 
-        thursdayButton.setText("Thursday");
+        startTimeField.setBorder(null);
+        startTimeField.setOpaque(false);
+        getContentPane().add(startTimeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 50, 20));
 
-        fridayButton.setText("Friday");
+        endTimeField.setBorder(null);
+        endTimeField.setOpaque(false);
+        getContentPane().add(endTimeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 50, 20));
 
-        jLabel1.setText("Start Time");
-        jLabel1.setFocusable(false);
+        courseField.setBorder(null);
+        courseField.setOpaque(false);
+        getContentPane().add(courseField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 180, 20));
 
-        jLabel2.setText("End Time");
-        jLabel2.setFocusable(false);
-
-        jLabel3.setText("Course");
-        jLabel3.setFocusable(false);
-
-        confirmButton.setText("Confirm");
+        confirmButton.setBorder(null);
+        confirmButton.setBorderPainted(false);
+        confirmButton.setContentAreaFilled(false);
         confirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 60, 60));
 
-        doneButton.setText("Done");
+        doneButton.setBorder(null);
+        doneButton.setContentAreaFilled(false);
         doneButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 doneButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(doneButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 0, 50, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(professorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(titleLabel)
-                                .addContainerGap())
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(professorField)
-                                    .addComponent(startTimeField)
-                                    .addComponent(endTimeField, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                                    .addComponent(courseField))
-                                .addGap(18, 18, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(meetingLabel)
-                                            .addComponent(mondayButton)
-                                            .addComponent(fridayButton))
-                                        .addGap(89, 89, 89))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tuesdayButton)
-                                            .addComponent(wednesdayButton)
-                                            .addComponent(thursdayButton))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(doneButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(confirmButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addContainerGap())))))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(titleLabel)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(professorLabel)
-                            .addComponent(professorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(meetingLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mondayButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tuesdayButton)
-                    .addComponent(jLabel3)
-                    .addComponent(courseField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(confirmButton))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(wednesdayButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(startTimeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(endTimeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(thursdayButton)
-                            .addComponent(doneButton))
-                        .addGap(9, 9, 9)
-                        .addComponent(fridayButton)
-                        .addGap(0, 1, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/enterInfoImage.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 440));
 
         pack();
         setLocationRelativeTo(null);
@@ -336,16 +258,11 @@ public class enterInfoGui extends javax.swing.JFrame {
     private javax.swing.JButton doneButton;
     private javax.swing.JTextField endTimeField;
     private javax.swing.JCheckBox fridayButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel meetingLabel;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JCheckBox mondayButton;
     private javax.swing.JTextField professorField;
-    private javax.swing.JLabel professorLabel;
     private javax.swing.JTextField startTimeField;
     private javax.swing.JCheckBox thursdayButton;
-    private javax.swing.JLabel titleLabel;
     private javax.swing.JCheckBox tuesdayButton;
     private javax.swing.JCheckBox wednesdayButton;
     // End of variables declaration//GEN-END:variables

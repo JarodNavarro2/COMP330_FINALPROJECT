@@ -54,13 +54,20 @@ public class mainGui extends javax.swing.JFrame {
         createAccount = new javax.swing.JMenuItem();
         addClassMenu = new javax.swing.JMenuItem();
         quitMenuItem = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        editAccount = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         docButton = new javax.swing.JMenuItem();
         reportMenuItem = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
+        filler1.setBackground(java.awt.Color.white);
+        filler1.setForeground(java.awt.Color.white);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 204, 204));
+        setForeground(new java.awt.Color(0, 153, 153));
 
         classesButton.setText("Refresh My Classes");
         classesButton.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +90,8 @@ public class mainGui extends javax.swing.JFrame {
             }
         });
 
+        classTable.setBackground(new java.awt.Color(159, 226, 226));
+        classTable.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         classTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -101,8 +110,11 @@ public class mainGui extends javax.swing.JFrame {
             }
         ));
         classTable.setFocusable(false);
+        classTable.setSelectionForeground(new java.awt.Color(225, 255, 255));
         jScrollPane1.setViewportView(classTable);
 
+        groupTable.setBackground(new java.awt.Color(159, 226, 226));
+        groupTable.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         groupTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -125,6 +137,8 @@ public class mainGui extends javax.swing.JFrame {
 
         groupLabel.setText("Information For You Group {group}");
 
+        membersTable.setBackground(new java.awt.Color(159, 226, 226));
+        membersTable.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         membersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -186,6 +200,18 @@ public class mainGui extends javax.swing.JFrame {
         jMenu1.add(quitMenuItem);
 
         jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+
+        editAccount.setText("Edit Account");
+        editAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editAccountActionPerformed(evt);
+            }
+        });
+        jMenu2.add(editAccount);
+
+        jMenuBar1.add(jMenu2);
 
         helpMenu.setText("Help");
 
@@ -477,6 +503,10 @@ public class mainGui extends javax.swing.JFrame {
         addClassMenuActionPerformed(evt);
     }//GEN-LAST:event_addClassButtonActionPerformed
 
+    private void editAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAccountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editAccountActionPerformed
+
     private void reportMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportMenuItemActionPerformed
         ReportGUI r = new ReportGUI();
         r.acceptConnection(this.con);
@@ -525,12 +555,14 @@ public class mainGui extends javax.swing.JFrame {
     private javax.swing.JButton classesButton;
     private javax.swing.JMenuItem createAccount;
     private javax.swing.JMenuItem docButton;
+    private javax.swing.JMenuItem editAccount;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel groupLabel;
     private javax.swing.JTable groupTable;
     private javax.swing.JButton groupsButton;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;

@@ -45,114 +45,64 @@ public class newAccountGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        firstNameLabel = new javax.swing.JLabel();
         firstNameField = new javax.swing.JTextField();
-        infoLabel = new javax.swing.JLabel();
-        lastNameLabel = new javax.swing.JLabel();
         lastNameField = new javax.swing.JTextField();
-        userNameLabel = new javax.swing.JLabel();
-        PassWordLabel = new javax.swing.JLabel();
-        groupLabel = new javax.swing.JLabel();
         userNameField = new javax.swing.JTextField();
         passwordField = new javax.swing.JTextField();
         groupField = new javax.swing.JTextField();
         confirmButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        firstNameLabel.setText("First Name");
-        firstNameLabel.setFocusable(false);
+        firstNameField.setBorder(null);
+        firstNameField.setOpaque(false);
+        firstNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(firstNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 133, 120, 20));
 
-        infoLabel.setText("Create A New Account!");
-        infoLabel.setFocusable(false);
+        lastNameField.setBorder(null);
+        lastNameField.setOpaque(false);
+        getContentPane().add(lastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 182, 120, 20));
 
-        lastNameLabel.setText("Last Name");
+        userNameField.setBorder(null);
+        userNameField.setOpaque(false);
+        getContentPane().add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 120, 20));
 
-        userNameLabel.setText("User Name");
-        userNameLabel.setFocusable(false);
+        passwordField.setBorder(null);
+        passwordField.setOpaque(false);
+        getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 277, 120, 20));
 
-        PassWordLabel.setText("Password");
-        PassWordLabel.setFocusable(false);
+        groupField.setBorder(null);
+        groupField.setOpaque(false);
+        getContentPane().add(groupField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 325, 120, 20));
 
-        groupLabel.setText("Group");
-        groupLabel.setFocusable(false);
-
-        confirmButton.setText("Confirm");
+        confirmButton.setBorder(null);
+        confirmButton.setContentAreaFilled(false);
         confirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 70, 70));
 
-        cancelButton.setText("Cancel");
+        cancelButton.setBorderPainted(false);
+        cancelButton.setContentAreaFilled(false);
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(cancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 0, 40, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(firstNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lastNameLabel)
-                            .addComponent(userNameLabel)
-                            .addComponent(PassWordLabel)
-                            .addComponent(groupLabel)
-                            .addComponent(confirmButton))
-                        .addGap(69, 69, 69)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(firstNameField)
-                                .addComponent(lastNameField)
-                                .addComponent(userNameField)
-                                .addComponent(passwordField)
-                                .addComponent(groupField, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
-                            .addComponent(cancelButton))
-                        .addGap(61, 61, 61))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(infoLabel)
-                        .addGap(113, 113, 113))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(infoLabel)
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(firstNameLabel))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lastNameLabel)
-                    .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userNameLabel)
-                    .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PassWordLabel)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(groupLabel)
-                    .addComponent(groupField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(confirmButton)
-                    .addComponent(cancelButton))
-                .addContainerGap())
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newAccountImage.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 440));
 
         pack();
         setLocationRelativeTo(null);
@@ -215,6 +165,10 @@ public class newAccountGui extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_confirmButtonActionPerformed
 
+    private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -251,18 +205,13 @@ public class newAccountGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel PassWordLabel;
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton confirmButton;
     private javax.swing.JTextField firstNameField;
-    private javax.swing.JLabel firstNameLabel;
     private javax.swing.JTextField groupField;
-    private javax.swing.JLabel groupLabel;
-    private javax.swing.JLabel infoLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField lastNameField;
-    private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField passwordField;
     private javax.swing.JTextField userNameField;
-    private javax.swing.JLabel userNameLabel;
     // End of variables declaration//GEN-END:variables
 }
