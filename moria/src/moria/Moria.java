@@ -28,8 +28,8 @@ public class Moria {
         try
             {
                 String username = "sa";
-                String pass = "Left4dead!";
-                String url = "jdbc:sqlserver://98.193.48.252:36781;DatabaseName=Miora";
+                String pass = "Cs330luc";
+                String url = "jdbc:sqlserver://localhost;DatabaseName=Moria";
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                 con = DriverManager.getConnection(url, username, pass);
             }
