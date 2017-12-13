@@ -1,22 +1,22 @@
-This is the repository for Moira, an application for the final project of class COMP 330-Software Development as developed by Anchors of Astora, and this document is intended to act as instruction for running and using this application.
+This is the repository for Moria, an application for the final project of class COMP 330-Software Development as developed by Anchors of Astora, and this document is intended to act as instruction for running and using this application.
 
 **Contents**
 - Our Purpose
 - Terms and Conditions
-- Running Moira
-- Using Moira - User’s Guide
+- Running Moria
+- Using Moria - User’s Guide
 
 **Our Purpose**
 
-Moira has been developed to make scheduling among students more streamlined. Rather than having to make or compile and print spreadsheets to compare schedules with each other, Moira allows students to see each other’s schedule details in real time from anywhere. Users can join groups with their fellows, enter the details of their schedule, and compare their schedules with their groupmates.
+Moria has been developed to make scheduling among students more streamlined. Rather than having to make or compile and print spreadsheets to compare schedules with each other, Moria allows students to see each other’s schedule details in real time from anywhere. Users can join groups with their fellows, enter the details of their schedule, and compare their schedules with their groupmates.
 
 **Terms and Conditions**
 
-Moira is a work-in-progress build, currently at Final Beta. There might be bugs in the program.
+Moria is a work-in-progress build, currently at Final Beta. There might be bugs in the program.
 
-**Running Moira**
+**Running Moria**
 
-Moira is run using an executable .jar file found in the GitHub repository or can be accessed through its VIM. 
+Moria is run using an executable .jar file found in the GitHub repository or can be accessed through its VIM. 
 
 To Access with GitHub
 - Navigate to the project repository
@@ -32,7 +32,7 @@ To Access with GitHub Desktop
 - Clone the project repository
 - Navigate to where the project has been saved
 - Open the project folder
-- Open the folder labelled “moira”
+- Open the folder labelled “moria”
 - Open the folder labelled “dist”
 - Run the .jar file
 
@@ -46,7 +46,7 @@ To Access with the VIM
 
 **Using Moira - User’s Guide**
 
-The following section details the functions of the application Moira and how to use them.
+The following section details the functions of the application Moria and how to use them.
 
 Users must log into the application before it can be run. Details on how to create a new account and login are detailed below.
 
@@ -88,6 +88,7 @@ Menu Bar - Help
 This option contains tools to improve user experience
 - Helpful Docs!
   - Keyboard Shortcut: N/A
+  - Opens the User's Guide
 - Report Someone
   - Keyboard Shortcut: N/A
   - This will bring up a prompt to report another user
