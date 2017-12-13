@@ -41,8 +41,10 @@ To Access with the VIM
 - Login with the following credentials:
   - Username: sql2017
   - Password: Cs330luc
-  - Connect to the VIM
-  - Login using the same password as above
+- Connect to the VIM
+- Login using the same password as above
+- Open the Netbeans application (on the desktop)
+- The Moria application should be open, right-click it in the upper-left hand sidebar and click "run"
 
 **Using Moira - User’s Guide**
 
