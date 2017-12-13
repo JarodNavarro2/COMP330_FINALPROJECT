@@ -51,8 +51,6 @@ public class loginGui extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         userNameField = new javax.swing.JTextField();
         Password1Field = new javax.swing.JPasswordField();
-        Password2Field = new javax.swing.JPasswordField();
-        password2Label = new javax.swing.JLabel();
         okButton = new javax.swing.JButton();
         quitButton = new javax.swing.JButton();
         newAccountButton = new javax.swing.JButton();
@@ -119,11 +117,6 @@ public class loginGui extends javax.swing.JFrame {
         Password1Field.setBorder(null);
         Password1Field.setOpaque(false);
         getContentPane().add(Password1Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 190, 20));
-        getContentPane().add(Password2Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 127, -1));
-
-        password2Label.setText("Re-type Password");
-        password2Label.setFocusable(false);
-        getContentPane().add(password2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 104, -1));
 
         okButton.setBorder(null);
         okButton.setContentAreaFilled(false);
@@ -169,17 +162,13 @@ public class loginGui extends javax.swing.JFrame {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         String userNameLogin = new String(this.userNameField.getText());
         String passwordOne = new String(this.Password1Field.getPassword());
-        String passwordTwo = new String(this.Password2Field.getPassword());
+
         
         if(userNameLogin.equals(""))
         {
            JOptionPane.showMessageDialog(this, "User name can not be left empty!");
         }
-        else if(! passwordOne.equals(passwordTwo))
-        {
-            JOptionPane.showMessageDialog(this, "Passwords Must Match!");
-        }
-        else if(passwordOne.equals("") || passwordTwo.equals(""))
+        else if(passwordOne.equals(""))
         {
             JOptionPane.showMessageDialog(this, "Passwords can not be left blank");
         }
@@ -241,7 +230,7 @@ public class loginGui extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(this, "Login Failed!"); 
                this.userNameField.setText("");
                this.Password1Field.setText("");
-               this.Password2Field.setText("");
+             
             }
 
             }
@@ -297,7 +286,6 @@ public class loginGui extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Password1Field;
-    private javax.swing.JPasswordField Password2Field;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JDialog jDialog3;
@@ -308,7 +296,6 @@ public class loginGui extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JButton newAccountButton;
     private javax.swing.JButton okButton;
-    private javax.swing.JLabel password2Label;
     private javax.swing.JButton quitButton;
     private javax.swing.JTextField userNameField;
     // End of variables declaration//GEN-END:variables
