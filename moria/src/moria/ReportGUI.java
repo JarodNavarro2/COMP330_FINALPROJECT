@@ -29,10 +29,15 @@ public class ReportGUI extends javax.swing.JFrame {
     Connection con;
     int report;
     int reportee;
+    String UserID;
     
     public void acceptConnection(Connection c)
     {
         this.con = c;
+    }
+    public void acceptUserID(String ID)
+    {
+        this.UserID = ID;
     }
     //Need to store Login String to reference here for queries.
     /**
@@ -97,11 +102,12 @@ public class ReportGUI extends javax.swing.JFrame {
         String updateReportee = "update [dbo].[Report] set [Reported] = ? where [UserID] = ?";
         try {
             PreparedStatement reporteePS = this.con.prepareStatement(verifyReport);
-            reporteePS.setString(1, userName);
+            reporteePS.setString(1, UserID);
             ResultSet reporteeR = reporteePS.executeQuery();
             if (reporteeR.next())
             {
                 reportee = reporteeR.getInt(1);
+                reportee++;
             }
             
             if (reportee > 5)
@@ -123,9 +129,8 @@ public class ReportGUI extends javax.swing.JFrame {
                 update.executeUpdate();
                 
                 PreparedStatement updateReporter = this.con.prepareStatement(updateReportee);
-                reportee++;
                 updateReporter.setInt(1,reportee);
-                updateReporter.setString(2, userName);
+                updateReporter.setString(2, UserID);
                 updateReporter.executeUpdate();
             }
             else if (reportee > 10)
@@ -149,9 +154,8 @@ public class ReportGUI extends javax.swing.JFrame {
             
                 update.executeUpdate();
                 PreparedStatement updateReporter = this.con.prepareStatement(updateReportee);
-                reportee++;
                 updateReporter.setInt(1,reportee);
-                updateReporter.setString(2, userName);
+                updateReporter.setString(2, UserID);
                 updateReporter.executeUpdate();
             }
             

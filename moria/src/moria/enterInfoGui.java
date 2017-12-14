@@ -190,10 +190,10 @@ public class enterInfoGui extends javax.swing.JFrame {
             {
                 System.out.println(e);
             }
-            this.professor = null;
-            this.course = null;
-            this.time = null;
-            this.days = null;
+            this.professor = "";
+            this.course = "";
+            this.time = "";
+            this.days = "";
             this.professorField.setText("");
             this.courseField.setText("");
             this.startTimeField.setText("");

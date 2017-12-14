@@ -510,6 +510,7 @@ public class mainGui extends javax.swing.JFrame {
     private void reportMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportMenuItemActionPerformed
         ReportGUI r = new ReportGUI();
         r.acceptConnection(this.con);
+        r.acceptUserID(this.userName);
         r.setVisible(true);
     }//GEN-LAST:event_reportMenuItemActionPerformed
 
