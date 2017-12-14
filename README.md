@@ -16,8 +16,9 @@ Moria is a work-in-progress build, currently at Final Beta. There might be bugs 
 
 **Running Moria**
 
-Moria is run using an executable .jar file found in the GitHub repository or can be accessed through its VIM. 
+Moria is run using an executable .jar file found in the GitHub repository or can be accessed through its VIM.
 *Note. Moria was build on a home made server, which may not be turned on 24/7. If ran on your device, and the connection fails, please use the VIM provided below*
+
 To Access with GitHub
 - Navigate to the project repository
 - Open the folder labelled “moria”
