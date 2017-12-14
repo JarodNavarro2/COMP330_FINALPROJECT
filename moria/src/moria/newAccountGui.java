@@ -140,7 +140,7 @@ public class newAccountGui extends javax.swing.JFrame {
                 {
                     String sql = "INSERT INTO [dbo].[Login]([First Name],[Last Name],[Username],[Password],[Group])"
                     + "values(?,?,?,?,?)";
-                    String insertReport = "Insert into [dbo].[Report] ([UserID], [Report Number], [Reason]) values (?,?,?)";
+                    String insertReport = "Insert into [dbo].[Report] ([UserID], [Report Number], [Reason], [Reported]) values (?,?,?,?)";
                     PreparedStatement reportPS = this.con.prepareStatement(insertReport);
                     PreparedStatement ps = this.con.prepareStatement(sql);
                     ps.setString(1, firstName);
@@ -151,6 +151,7 @@ public class newAccountGui extends javax.swing.JFrame {
                     reportPS.setString(1, userName);
                     reportPS.setInt(2, 0);
                     reportPS.setString(3, null);
+                    reportPS.setInt(4,0);
                     reportPS.executeUpdate();
                     ps.executeUpdate();
                     JOptionPane.showMessageDialog(this, "Account Created");

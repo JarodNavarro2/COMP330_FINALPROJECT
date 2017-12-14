@@ -27,9 +27,9 @@ public class Moria {
         con = null;
         try
             {
-                String username = "sa";
-                String pass = "Left4dead!";
-                String url = "jdbc:sqlserver://98.193.48.252: 36781;DatabaseName=Miora";
+                String username = "Moria_Log";
+                String pass = "Cs330luc";
+                String url = "jdbc:sqlserver://98.193.48.252: 36781;DatabaseName=Moria";
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                 con = DriverManager.getConnection(url, username, pass);
             }

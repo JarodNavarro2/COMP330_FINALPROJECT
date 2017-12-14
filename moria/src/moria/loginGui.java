@@ -208,9 +208,9 @@ public class loginGui extends javax.swing.JFrame {
                         this.setVisible(false);
                         System.out.println("Login Successful");
                     }
-                    else if (ban >= 3)
+                    else if (ban >= 10)
                     {
-                        JOptionPane.showMessageDialog(this, "You've been reported too many times. Your account has been banned");
+                        JOptionPane.showMessageDialog(this, "You've been reported too many times. Your account has been suspended until further notice.");
                     }
                     else
                     {
@@ -227,7 +227,7 @@ public class loginGui extends javax.swing.JFrame {
             }
             else
             {
-               JOptionPane.showMessageDialog(this, "Login Failed!"); 
+               JOptionPane.showMessageDialog(this, "Username and password do not match. Are you sure you created an account?"); 
                this.userNameField.setText("");
                this.Password1Field.setText("");
              

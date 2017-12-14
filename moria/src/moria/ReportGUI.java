@@ -28,12 +28,13 @@ public class ReportGUI extends javax.swing.JFrame {
     
     Connection con;
     int report;
+    int reportee;
     
     public void acceptConnection(Connection c)
     {
         this.con = c;
     }
-
+    //Need to store Login String to reference here for queries.
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,23 +92,69 @@ public class ReportGUI extends javax.swing.JFrame {
         String userName = this.userNameField.getText();
         
         String getReport = "Select [Report Number] from [dbo].[Report] where [UserID] = ?";
-        String updateReport = "UPDATE [dbo].[Report] SET [UserID] = ? ,[Report Number] = ? , [Reason] = ? WHERE UserID = ?";
+        String verifyReport = "Select [Reported] from [dbo].[Report] where [UserID] = ?";
+        String updateReport = "UPDATE [dbo].[Report] SET [Report Number] = ? , [Reason] = ? WHERE UserID = ?";
+        String updateReportee = "update [dbo].[Report] set [Reported] = ? where [UserID] = ?";
         try {
-            PreparedStatement reportPS = this.con.prepareStatement(getReport);
-            reportPS.setString(1, userName);
-            ResultSet resultR = reportPS.executeQuery();
-            if (resultR.next())
+            PreparedStatement reporteePS = this.con.prepareStatement(verifyReport);
+            reporteePS.setString(1, userName);
+            ResultSet reporteeR = reporteePS.executeQuery();
+            if (reporteeR.next())
             {
-                report = resultR.getInt(1);
-                report++;
+                reportee = reporteeR.getInt(1);
             }
-            PreparedStatement update = this.con.prepareStatement(updateReport);
-            update.setString(1, userName);
-            update.setInt(2, report);
-            update.setString(3, explaination);
-            update.setString(4, userName);
             
-            update.executeUpdate();
+            if (reportee > 5)
+            {
+                JOptionPane.showMessageDialog(this, "You've been reporting a lot of users. We do not accept spam reports. If you continue, you will be blocked from making reports.");
+                PreparedStatement reportPS = this.con.prepareStatement(getReport);
+                reportPS.setString(1, userName);
+                ResultSet resultR = reportPS.executeQuery();
+                if (resultR.next())
+                {
+                    report = resultR.getInt(1);
+                    report++;
+                }
+                PreparedStatement update = this.con.prepareStatement(updateReport);
+                update.setInt(1, report);
+                update.setString(2, explaination);
+                update.setString(3, userName);
+            
+                update.executeUpdate();
+                
+                PreparedStatement updateReporter = this.con.prepareStatement(updateReportee);
+                reportee++;
+                updateReporter.setInt(1,reportee);
+                updateReporter.setString(2, userName);
+                updateReporter.executeUpdate();
+            }
+            else if (reportee > 10)
+            {
+                JOptionPane.showMessageDialog(this, "You've sent too many reports. You have been denied access to the reporting feature until further notice. If you're responsible for the potential suspension of another user, your account will be terminated");
+            }
+            else
+            {
+                PreparedStatement reportPS = this.con.prepareStatement(getReport);
+                reportPS.setString(1, userName);
+                ResultSet resultR = reportPS.executeQuery();
+                if (resultR.next())
+                {
+                    report = resultR.getInt(1);
+                    report++;
+                }
+                PreparedStatement update = this.con.prepareStatement(updateReport);
+                update.setInt(1, report);
+                update.setString(2, explaination);
+                update.setString(3, userName);
+            
+                update.executeUpdate();
+                PreparedStatement updateReporter = this.con.prepareStatement(updateReportee);
+                reportee++;
+                updateReporter.setInt(1,reportee);
+                updateReporter.setString(2, userName);
+                updateReporter.executeUpdate();
+            }
+            
         } 
         catch (SQLException ex) 
         {
