@@ -17,7 +17,7 @@ Moria is a work-in-progress build, currently at Final Beta. There might be bugs 
 **Running Moria**
 
 Moria is run using an executable .jar file found in the GitHub repository or can be accessed through its VIM. 
-
+*Note. Moria was build on a home made server, which may not be turned on 24/7. If ran on your device, and the connection fails, please use the VIM provided below*
 To Access with GitHub
 - Navigate to the project repository
 - Open the folder labelled “moria”
@@ -45,6 +45,7 @@ To Access with the VIM
 - Login using the same password as above
 - Open the Netbeans application (on the desktop)
 - The Moria application should be open, right-click it in the upper-left hand sidebar and click "run"
+- Alternatively, you can run the .jar file located in the same directory.
 
 **Using Moira - User’s Guide**
 
@@ -64,13 +65,13 @@ Logging In
     - Your preferred username
     - Your password
     - The group you wish to join or create
-  - Click “Confirm”
+  - Click on the arrow.
   - Enter your credentials in the respective boxes
-  - Click “Student Login”
+  - Click on the arrow.
 
 - For returning users
   - Enter your credentials in the respective boxes
-  - Click “Student Login”
+  - Click on the arrow.
 
 Menu Bar - File
 
@@ -87,10 +88,6 @@ This option contains account and class creation tools, as well as an exit tool
 
 Menu Bar - Help
 
-This option contains tools to improve user experience
-- Helpful Docs!
-  - Keyboard Shortcut: N/A
-  - Opens the User's Guide
 - Report Someone
   - Keyboard Shortcut: N/A
   - This will bring up a prompt to report another user
@@ -98,6 +95,7 @@ This option contains tools to improve user experience
     - Enter the username of the offending user in the respective box
     - Briefly explain why you are reporting this user in the respective box
     - Click “Submit”
+    -Note: If you are reported too many times, or you report a user too many times, your account will be suspended.
 
 Grids - User
 
